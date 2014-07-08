@@ -1,14 +1,15 @@
+import json
+
 import tornado.ioloop
 import tornado.web
 import tornado.httpserver
-import os
 
 import conf
 
 class MainHandler(tornado.web.RequestHandler):
     def post(self):
-        pass
-
+        if self.get_argument("user_name", conf.USERNAME) != conf.USERNAME:
+            self.write(json.dumps({"text": self.get_argument('text', 'Hello, World!')}))
 
 def main():
     application = tornado.web.Application([
