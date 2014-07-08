@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git add . --all
+git commit -am "commit local changes before merge to master" --no-edit
 git checkout master
 git reset --hard dev 
 cp -r ./src/* ./
