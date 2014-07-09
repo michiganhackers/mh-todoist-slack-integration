@@ -31,8 +31,11 @@ class MainHandler(tornado.web.RequestHandler):
     def __format_tasks_for_reply(self, project, tasks):
         reply = ""
         for task in tasks:
-            reply += task.content + " _due " + task.due_date + "_\n"
-        reply += "View at: https://todoist.com/app?v=301#project/" + project.id
+            reply += task.content
+            if task.due_date:
+                reply += " _due " + task.due_date + "_"
+            reply += "\n"
+        reply += "View at: https://todoist.com/app?v=301#project/" + str(project.id)
         return json.dumps({"text": reply, "mrkdwn": True})
 
 def main():
