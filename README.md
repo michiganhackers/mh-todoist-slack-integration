@@ -1,7 +1,9 @@
 mh-todoist-slack-integration
 ============================
 
-Hooks up Todoist and Slack for much awesome
+Hooks up Todoist and Slack for much awesome.
+
+Development is done on the `dev` branch.  `Master` is a snapshot of what's running on Heroku.
 
 ## Installing
 
